@@ -1530,6 +1530,85 @@
 
 
     <script src="script.js"></script>
+    <!-- Подключение Supabase -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+  // ВАШИ ДАННЫЕ ДЛЯ ПОДКЛЮЧЕНИЯ
+  const supabaseUrl = 'https://ayaytdwjqgtlnxzfnfw.supabase.co';
+  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF5YXl0ZHdqcWd0bG54emZuZml3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEwMDk0MzgsImV4cCI6MjA5NjU4NTQzOH0.hy_bo4Vbzc7KysvZeGYzXsD9sBmmiMpcnNOLlqIBpRo';
+  const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+  // ФУНКЦИЯ РЕГИСТРАЦИИ
+  async function registerWithSupabase(email, password) {
+    const { data, error } = await supabase.auth.signUp({
+      email: email,
+      password: password
+    });
+    
+    if (error) {
+      alert('Ошибка: ' + error.message);
+      return false;
+    }
+    
+    if (data.user) {
+      await supabase.from('users').insert([{ 
+        id: data.user.id, 
+        email: email,
+        is_admin: false 
+      }]);
+      alert('Регистрация успешна! Теперь войдите.');
+      return true;
+    }
+    return false;
+  }
+
+  // ФУНКЦИЯ ВХОДА
+  async function loginWithSupabase(email, password) {
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: email,
+      password: password
+    });
+    
+    if (error) {
+      alert('Ошибка: ' + error.message);
+      return false;
+    }
+    
+    const { data: userData } = await supabase
+      .from('users')
+      .select('is_admin')
+      .eq('id', data.user.id)
+      .single();
+    
+    if (userData?.is_admin) {
+      alert('Добро пожаловать, администратор!');
+      showAdminPanel();
+    } else {
+      alert('Вход выполнен');
+    }
+    return true;
+  }
+
+  function showAdminPanel() {
+    const panel = document.getElementById('admin-panel');
+    if (panel) panel.style.display = 'block';
+  }
+
+  // ДЕЛАЕМ ФУНКЦИИ ДОСТУПНЫМИ ГЛОБАЛЬНО
+  window.registerWithSupabase = registerWithSupabase;
+  window.loginWithSupabase = loginWithSupabase;
+  
+  console.log('✅ Supabase подключён!');
+</script>
+
+<!-- Блок админ-панели (добавьте в конец body) -->
+<div id="admin-panel" style="display: none; background: #f8f9fa; padding: 20px; margin-top: 30px; border: 1px solid #ccc; border-radius: 10px;">
+  <h3>👑 Панель администратора</h3>
+  <p>Управление сайтом</p>
+  <button onclick="alert('Список пользователей можно посмотреть в Supabase Table Editor')">📋 Пользователи</button>
+  <button onclick="alert('Здесь можно добавить функцию управления заявками')">✏️ Управление заявками</button>
+</div>
 </body>
 
 </html>
