@@ -1,0 +1,1853 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Профстрой+ - О компании">
+    <title>О нас | Профстрой+</title>
+    <link rel="icon" type="image/png" href="https://proffstroi.ru/wp-content/uploads/2021/01/logo.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=f6b2c2ef-1d14-489d-a4a1-90070dd7d005"
+    
+        type="text/javascript"> </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-weight: bold;
+            color: white;
+            font-size: 18px;
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 700;
+            color: black;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover .logo-text {
+            color: #FFA929;
+        }
+
+        .header ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .header li {
+            margin-left: 30px;
+        }
+
+        .header a {
+            text-decoration: none;
+            color: black;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s ease;
+            padding: 5px 0;
+        }
+
+        .header a:hover {
+            color: #FFA929;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 280px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            padding: 10px 0;
+            list-style: none;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .dropdown-menu--column {
+            flex-direction: column;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu li {
+            margin: 0;
+            padding: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 12px 20px;
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f8f9fa;
+            padding-left: 25px;
+        }
+
+        .about-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+            url('img/new_building.webp') center/cover no-repeat;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+        }
+
+        .about-hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .about-hero-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .about-section {
+            padding: 80px 20px;
+            background-color: #fff;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-title {
+            font-size: 32px;
+            font-weight: 600;
+            color: black;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .about-text h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: black;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .about-text ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .about-text li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .about-text strong {
+            font-weight: 600;
+            color: #FFA929;
+        }
+
+        .about-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+           max-width: 800px;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .values-section {
+            padding: 80px 20px;
+        }
+
+        .values-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .values-title {
+            font-size: 32px;
+            font-weight: 600;
+            color: black;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .value-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            background-color: #FFA929;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .value-icon svg {
+            width: 35px;
+            height: 35px;
+        }
+
+        .value-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: black;
+            margin-bottom: 15px;
+        }
+
+        .value-card p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .team-section {
+            padding: 80px 20px;
+            background-color: #fff;
+        }
+
+        .team-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-title {
+            font-size: 32px;
+            font-weight: 600;
+            color: black;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 100px;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .member-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 4px solid #FFA929;
+        }
+
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-info h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: black;
+            margin-bottom: 5px;
+        }
+
+        .member-info p {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .member-description {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        /* Размер слайдера можно подстроить */
+.swiper {
+  padding-bottom: 40px;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+}
+
+@media(max-width: 768px) {
+  .team-member {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+
+  .member-info {
+    padding: 10px;
+  }
+}
+
+.team-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 250px;
+  margin: 0 auto;
+}
+
+    
+
+        .yandex-map-container {
+            width: 100%;
+            height: 400px;
+            margin-bottom: 40px;
+        }
+
+        .main-footer {
+            background-color: #fff;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .footer-logo-block {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            flex-basis: 250px;
+        }
+
+        .footer-logo-block img {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            margin-right: 10px;
+            object-fit: contain;
+        }
+
+        .footer-logo-block .logo-text {
+            font-size: 22px;
+            font-weight: 700;
+            color: black;
+            transition: color 0.3s ease;
+        }
+
+        .footer-info {
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .footer-info p {
+            margin: 5px 0;
+        }
+
+        .footer-contacts {
+            text-align: right;
+            flex-basis: 300px;
+        }
+
+        .footer-phone {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .footer-address {
+            margin-top: 5px;
+        }
+
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .footer-logo-block, .footer-contacts {
+                flex-basis: auto;
+                width: 100%;
+                text-align: center;
+                margin-bottom: 0;
+            }
+
+            .footer-info {
+                order: 3;
+                margin-bottom: 0;
+            }
+
+            .footer-contacts {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 15px 20px;
+            }
+
+            .logo {
+                margin-bottom: 15px;
+            }
+
+            .header ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .header li {
+                margin: 0 10px 10px;
+            }
+            
+            .about-hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .about-hero-content p {
+                font-size: 1rem;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background: transparent;
+                display: none;
+            }
+
+            .dropdown:hover .dropdown-menu {
+                display: block;
+            }
+
+            .dropdown-menu a {
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        section {
+            scroll-margin-top: 80px;
+        }
+
+        @media (max-width: 768px) {
+            html {
+                scroll-padding-top: 120px;
+            }
+            
+            section {
+                scroll-margin-top: 120px;
+            }
+        }
+
+        .swiper-button-next, .swiper-button-prev {
+            color: #FFA929;
+        }
+
+        /* Новые стили для модального окна */
+.alert-modal {
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.alert-modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+    max-width: 400px;
+    width: 80%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.alert-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Крестик в модалках */
+.modal-close {
+    position: absolute;
+    right: 16px;
+    top: 12px;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+    color: #333;
+    background: transparent;
+    border: none;
+}
+
+/* Немного стиль для модалки регистрации (адаптивно) */
+.register-modal .modal-content {
+    max-width: 420px;
+    max-height: 300px;
+    width: 90%;
+    padding: 20px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.register-form input[type="text"],
+.register-form input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.button-auth {
+    background-color: #FFA929;
+    border: 1px solid #FFA929;
+    color: white;
+    padding: 15px 30px;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.button-auth:hover {
+    background-color: #e6951f;
+    transform: translateY(-2px);
+}
+        /* Стили для модального окна */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Стилизация скроллбара для Chrome, Edge, Safari */
+::-webkit-scrollbar {
+    width: 12px; /* Ширина вертикального скроллбара */
+    height: 12px; /* Высота горизонтального скроллбара */
+}
+
+::-webkit-scrollbar-track {
+    background: #f8f9fa; /* Цвет фона трека */
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #FFA929; /* Желтый цвет ползунка */
+    border-radius: 6px;
+    border: 3px solid #f8f9fa; /* Отступ вокруг ползунка */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #e6951f; /* Более темный желтый при наведении */
+}
+
+/* Стилизация для Firefox */
+* {
+    scrollbar-width: thin; /* Тонкая полоса */
+    scrollbar-color: #FFA929 #f8f9fa; /* Ползунок и трек */
+}
+
+/* ===== Гамбургер меню для мобильных устройств ===== */
+
+/* Переменные для гамбургер-меню в стиле сайта */
+:root {
+  --burger-primary: #FFA929;
+  --burger-accent: #FFA929;
+  --burger-background: #ffffff;
+  --burger-text: #333;
+  --burger-hover: #e6951f;
+  --menu-background: rgba(255, 255, 255, 0.98);
+  --menu-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Гамбургер контейнер - скрыт на десктопе */
+.burger-container {
+  display: none;
+  position: fixed;
+  top: 25px;
+  right: 20px;
+  z-index: 1001;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: var(--menu-shadow);
+  border: 1px solid rgba(255, 169, 41, 0.2);
+  transition: all 0.3s ease;
+}
+
+.burger-container:hover {
+  background: white;
+  box-shadow: 0 6px 25px rgba(255, 169, 41, 0.15);
+  border-color: var(--burger-accent);
+}
+
+.burger-line {
+  width: 24px;
+  height: 3px;
+  background-color: var(--burger-primary);
+  border-radius: 2px;
+  transform-origin: center;
+  transition: all 0.4s cubic-bezier(0.77, 0.2, 0.05, 1);
+  margin: 3px 0;
+}
+
+/* Чекбокс для управления меню */
+#burger-toggle {
+  display: none;
+}
+
+/* Мобильное меню - скрыто на десктопе */
+.mobile-nav-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 320px;
+  height: 100%;
+  background: var(--menu-background);
+  transition: all 0.4s cubic-bezier(0.77, 0.2, 0.05, 1);
+  box-shadow: var(--menu-shadow);
+  overflow-y: auto;
+  z-index: 1000;
+  padding-top: 80px;
+  backdrop-filter: blur(10px);
+}
+
+.mobile-nav-menu::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: linear-gradient(135deg, #FFA929 0%, #e6951f 100%);
+}
+
+.mobile-nav-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1;
+}
+
+.mobile-nav-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.mobile-nav-logo .logo-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  background: white;
+}
+
+.mobile-nav-logo .logo-text {
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+}
+
+.mobile-nav-menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-nav-menu ul li {
+  margin: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.mobile-nav-menu ul li:first-child {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.mobile-nav-menu ul li a {
+  color: var(--burger-text);
+  text-decoration: none;
+  display: block;
+  padding: 18px 25px;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.mobile-nav-menu ul li a:hover {
+  color: var(--burger-accent);
+  background: rgba(255, 169, 41, 0.05);
+  padding-left: 30px;
+}
+
+.mobile-nav-menu ul li a.active {
+  color: var(--burger-accent);
+  background: rgba(255, 169, 41, 0.08);
+  border-left: 4px solid var(--burger-accent);
+}
+
+.mobile-nav-menu ul li a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: var(--burger-accent);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.mobile-nav-menu ul li a:hover::before {
+  transform: scaleY(1);
+}
+
+/* Анимация гамбургер-иконки */
+#burger-toggle:checked ~ .burger-container {
+  background: white;
+  border-color: var(--burger-accent);
+}
+
+#burger-toggle:checked ~ .burger-container .burger-line:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+  background-color: var(--burger-accent);
+}
+
+#burger-toggle:checked ~ .burger-container .burger-line:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+#burger-toggle:checked ~ .burger-container .burger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+  background-color: var(--burger-accent);
+}
+
+/* Выдвижение меню */
+#burger-toggle:checked ~ .mobile-nav-menu {
+  right: 0;
+}
+
+/* Затемнение фона при открытом меню */
+.menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(3px);
+  z-index: 999;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+#burger-toggle:checked ~ .menu-overlay {
+  display: block;
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+  /* Показываем гамбургер-меню на мобильных */
+  .burger-container {
+    display: flex;
+  }
+  
+  /* Скрываем основное меню на мобильных */
+  .header .header-container ul {
+    display: none !important;
+  }
+  
+  /* Показываем мобильное меню */
+  .mobile-nav-menu {
+    display: block;
+  }
+  
+  /* Адаптируем шапку для мобильных */
+  .header-container {
+    justify-content: center !important;
+    padding: 15px 20px !important;
+  }
+  
+  .logo {
+    margin-bottom: 0 !important;
+  }
+  
+  .logo-text {
+    font-size: 20px !important;
+  }
+  
+  /* Улучшаем отображение dropdown в мобильном меню */
+  .mobile-nav-menu .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    background: rgba(0, 0, 0, 0.02);
+    display: none;
+    padding-left: 0;
+    margin-top: 0;
+  }
+  
+  .mobile-nav-menu .dropdown.active .dropdown-menu {
+    display: block;
+    animation: slideDown 0.3s ease;
+  }
+  
+  @keyframes slideDown {
+    from { 
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .mobile-nav-menu .dropdown-menu li {
+    border-bottom: none;
+  }
+  
+  .mobile-nav-menu .dropdown-menu a {
+    padding: 14px 25px 14px 40px;
+    font-size: 15px;
+    font-weight: 500;
+    color: rgba(51, 51, 51, 0.9);
+    background: rgba(255, 169, 41, 0.03);
+    border-left: 2px solid rgba(255, 169, 41, 0.3);
+  }
+  
+  .mobile-nav-menu .dropdown-menu a:hover {
+    color: var(--burger-accent);
+    background: rgba(255, 169, 41, 0.08);
+    padding-left: 45px;
+  }
+  
+  /* Стрелка для dropdown */
+  .mobile-nav-menu .dropdown > a::after {
+    content: "›";
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    font-size: 20px;
+    color: rgba(51, 51, 51, 0.5);
+    transition: transform 0.3s ease;
+  }
+  
+  .mobile-nav-menu .dropdown.active > a::after {
+    transform: translateY(-50%) rotate(-90deg);
+    color: var(--burger-accent);
+  }
+}
+
+/* Десктопная версия - гамбургер скрыт */
+@media (min-width: 769px) {
+  .burger-container,
+  .mobile-nav-menu,
+  .menu-overlay {
+    display: none !important;
+  }
+  
+  .header .header-container ul {
+    display: flex !important;
+  }
+}
+
+/* Анимация для мобильного меню */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.mobile-nav-menu ul li {
+  animation: slideIn 0.4s ease forwards;
+  opacity: 0;
+}
+
+.mobile-nav-menu ul li:nth-child(1) { animation-delay: 0.1s; }
+.mobile-nav-menu ul li:nth-child(2) { animation-delay: 0.15s; }
+.mobile-nav-menu ul li:nth-child(3) { animation-delay: 0.2s; }
+.mobile-nav-menu ul li:nth-child(4) { animation-delay: 0.25s; }
+.mobile-nav-menu ul li:nth-child(5) { animation-delay: 0.3s; }
+
+@media (max-width: 768px) {
+  .header-container {
+    padding: 15px 20px !important;
+    gap: 15px !important; /* Добавляем отступ между лого и кнопкой */
+    flex-wrap: wrap !important; /* Позволяем элементам переноситься */
+    justify-content: space-between !important;
+  }
+  
+  .logo {
+    margin-bottom: 0 !important;
+    flex: 1; /* Занимает доступное пространство */
+  }
+  
+  /* Стили для кнопки авторизации на мобильных */
+  .button-auth, #openRegisterBtn {
+    padding: 10px 15px !important;
+    font-size: 14px !important;
+    white-space: nowrap; /* Текст не переносится */
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+    min-width: 140px; /* Минимальная ширина для читаемости */
+  }
+  
+  /* Для пользовательского блока на мобильных */
+  #userBlock {
+    flex: 1;
+    justify-content: flex-end;
+    margin-left: 0 !important;
+    padding: 5px 0;
+  }
+  
+  #userBlock span {
+    font-size: 14px !important;
+  }
+  
+  #logoutBtn {
+    padding: 5px 8px !important;
+    font-size: 12px !important;
+  }
+}
+    </style>
+</head>
+
+<body>
+    <nav class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><img src="img/logo.png" alt="Логотип"></div>
+                <div class="logo-text">Профстрой+</div>
+            </a>
+            <ul>
+                <li class="dropdown">
+                    <a href="index.html#services">Услуги</a>
+                    <ul class="dropdown-menu dropdown-menu--column">
+                        <li><a href="index.html#services" data-service="balcony-renovation">Отделка балкона «под ключ»</a></li>
+                        <li><a href="index.html#services" data-service="balcony-glazing">Остекление балконов и лоджий</a></li>
+                        <li><a href="index.html#services" data-service="apartment-renovation">Ремонт квартир «под ключ»</a></li>
+                        <li><a href="index.html#services" data-service="balcony-insulation">Утепление и обшивка балконов</a></li>
+                        <li><a href="index.html#services" data-service="facade-renovation">Отделка фасадов домов</a></li>
+                        <li><a href="index.html#services" data-service="stretch-ceilings">Установка натяжных потолков</a></li>
+                    </ul>
+                </li>
+                <li><a href="projects.html">Проекты</a></li>
+                <li><a href="about.html" class="active">О нас</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="about-hero">
+        <div class="about-hero-content">
+            <h1>О компании Профстрой+</h1>
+            <p>Более 10 лет мы создаем комфорт и уют для жителей Миасса и Челябинской области</p>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <div class="about-container">
+            <h2 class="about-title">Наша история</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Профессионализм и качество с 2013 года</h2>
+                    <p>Мы — профессиональная строительная компания из Миасса, специализирующаяся на ремонте и отделке квартир, домов и коммерческих помещений. Наш опыт позволяет выполнять <strong>качественный ремонт любой сложности</strong> — от косметического обновления до полной перепланировки.</p>
+                    <p>За годы работы мы собрали команду настоящих профессионалов, которые любят свое дело и ответственно подходят к каждому проекту. Мы гордимся тем, что большинство наших клиентов обращаются к нам по рекомендациям друзей и знакомых.</p>
+                    <h2>Наши принципы работы:</h2>
+                    <ul>
+                        <li><strong>Качество</strong> – используем только проверенные материалы от надежных поставщиков</li>
+                        <li><strong>Надежность</strong> – строго соблюдаем все технологические нормы и требования</li>
+                        <li><strong>Сроки</strong> – выполняем работы точно в оговоренные сроки без задержек</li>
+                        <li><strong>Гарантия</strong> – предоставляем официальные гарантии на все виды работ</li>
+                        <li><strong>Прозрачность</strong> – детальная смета без скрытых платежей</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <img src="https://trudko.ru/files/images/prorab-sergei.jpg" alt="Наша команда">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="values-section">
+        <div class="values-container">
+            <h2 class="values-title">Наши ценности</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-2.625 6c-.54 0-.828.419-.936.634a1.96 1.96 0 00-.189.866c0 .298.059.605.189.866.108.215.395.634.936.634.54 0 .828-.419.936-.634.13-.26.189-.568.189-.866 0-.298-.059-.605-.189-.866-.108-.215-.395-.634-.936-.634zm4.314.634c.108-.215.395-.634.936-.634.54 0 .828.419.936.634.13.26.189.568.189.866 0 .298-.059.605-.189.866-.108.215-.395.634-.936.634-.54 0-.828-.419-.936-.634a1.96 1.96 0 01-.189-.866c0-.298.059-.605.189-.866zm2.023 6.828a.75.75 0 10-1.06-1.06 3.75 3.75 0 01-5.304 0 .75.75 0 00-1.06 1.06 5.25 5.25 0 007.424 0z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <h3>Клиентоориентированность</h3>
+                    <p>Мы всегда ставим интересы клиента на первое место, внимательно выслушиваем пожелания и предлагаем оптимальные решения.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.5 3.798v5.02a3 3 0 01-.879 2.121l-2.377 2.377a9.845 9.845 0 015.091 1.013 8.315 8.315 0 005.713.636l.285-.071-3.954-3.955a3 3 0 01-.879-2.121v-5.02a23.614 23.614 0 00-3 0zm4.5.138a.75.75 0 00.093-1.495A24.837 24.837 0 0012 2.25a25.048 25.048 0 00-3.093.191A.75.75 0 009 3.936v4.882a1.5 1.5 0 01-.44 1.06l-6.293 6.294c-1.62 1.621-.903 4.475 1.471 4.88 2.686.46 5.447.698 8.262.698 2.816 0 5.576-.239 8.262-.697 2.373-.406 3.092-3.26 1.47-4.881L15.44 9.879A1.5 1.5 0 0115 8.818V4.064z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <h3>Качество материалов</h3>
+                    <p>Работаем только с проверенными поставщиками, используем европейские марки строительных материалов.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 6a.75.75 0 00-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 000-1.5h-3.75V6z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <h3>Соблюдение сроков</h3>
+                    <p>Работаем по четкому графику, сдаем объекты вовремя. Для нас важно ваше время и планы.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd" d="M8.603 3.799A4.49 4.49 0 0112 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 013.498 1.307 4.491 4.491 0 011.307 3.497A4.49 4.49 0 0121.75 12a4.49 4.49 0 01-1.549 3.397 4.491 4.491 0 01-1.307 3.497 4.491 4.491 0 01-3.497 1.307A4.49 4.49 0 0112 21.75a4.49 4.49 0 01-3.397-1.549 4.49 4.49 0 01-3.498-1.306 4.491 4.491 0 01-1.307-3.498A4.49 4.49 0 012.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 011.307-3.497 4.49 4.49 0 013.497-1.307zm7.007 6.387a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <h3>Гарантия качества</h3>
+                    <p>Предоставляем официальные гарантии на все виды работ. Всегда доводим начатое до идеального результата.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M4.5 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM14.25 8.625a3.375 3.375 0 116.75 0 3.375 3.375 0 01-6.75 0zM1.5 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM17.25 19.128l-.001.144a2.25 2.25 0 01-.233.96 10.088 10.088 0 005.06-1.01.75.75 0 00.42-.643 4.875 4.875 0 00-6.957-4.611 8.586 8.586 0 011.71 5.157v.003z" />
+                        </svg>
+                    </div>
+                    <h3>Команда профессионалов</h3>
+                    <p>Квалифицированные мастера с многолетним опытом. Соблюдаем все строительные нормы и технологии.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M4.913 2.658c2.075-.27 4.19-.408 6.337-.408 2.147 0 4.262.139 6.337.408 1.922.25 3.291 1.861 3.405 3.727a4.403 4.403 0 00-1.032-.211 50.89 50.89 0 00-8.42 0c-2.358.196-4.04 2.19-4.04 4.434v4.286a4.47 4.47 0 002.433 3.984L7.28 21.53A.75.75 0 016 21v-4.03a48.527 48.527 0 01-1.087-.128C2.905 16.58 1.5 14.833 1.5 12.862V6.638c0-1.97 1.405-3.718 3.413-3.979z" />
+                            <path d="M15.75 7.5c-1.376 0-2.739.057-4.086.169C10.124 7.797 9 9.103 9 10.609v4.285c0 1.507 1.128 2.814 2.67 2.94 1.243.102 2.5.157 3.768.165l2.782 2.781a.75.75 0 001.28-.53v-2.39l.33-.026c1.542-.125 2.67-1.433 2.67-2.94v-4.286c0-1.505-1.125-2.811-2.664-2.94A49.392 49.392 0 0015.75 7.5z" />
+                        </svg>
+                    </div>
+                    <h3>Прозрачность коммуникации</h3>
+                    <p>Открыто обсуждаем все детали проекта, регулярно информируем о ходе работ, предоставляем детальные отчеты.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <div class="team-container">
+          <h2 class="team-title">Наша команда</h2>
+          <!-- Обертка Swiper -->
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <!-- Каждый слайд -->
+              <div class="swiper-slide">
+                <div class="team-member">
+                  <div class="member-photo">
+                    <img src="img/director.jpg" alt="Александр Петров" />
+                  </div>
+                  <div class="member-info">
+                    <h3>Александр Петров</h3>
+                    <p>Генеральный директор</p>
+                    <p class="member-description">Основатель компании, инженер-строитель с 15-летним опытом. Отвечает за стратегическое развитие и ключевые проекты.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Аналогично для других членов -->
+              <div class="swiper-slide">
+                <div class="team-member">
+                  <div class="member-photo">
+                    <img src="img/ravshan.jpg" alt="Дмитрий Семенов" />
+                  </div>
+                  <div class="member-info">
+                    <h3>Дмитрий Семенов</h3>
+                    <p>Главный прораб</p>
+                    <p class="member-description">Координирует все строительные работы, контролирует качество и соблюдение сроков. Опыт работы - 12 лет.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="team-member">
+                  <div class="member-photo">
+                    <img src="img/tiler.jpg" alt="Сергей Иванов" />
+                  </div>
+                  <div class="member-info">
+                    <h3>Сергей Иванов</h3>
+                    <p>Ведущий специалист по отделке</p>
+                    <p class="member-description">Мастер своего дела с 10-летним стажем. Специализируется на сложных дизайнерских решениях и премиальной отделке.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="team-member">
+                  <div class="member-photo">
+                    <img src="img/manager.jfif" alt="Мария Козлова" />
+                  </div>
+                  <div class="member-info">
+                    <h3>Мария Козлова</h3>
+                    <p>Менеджер проектов</p>
+                    <p class="member-description">Ваш персональный консультант от первого звонка до сдачи объекта. Помогает в выборе материалов и контролирует все этапы работ.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Навигация (по необходимости) -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+        </div>
+      </section>
+
+    
+
+    <div id="yandex-map" class="yandex-map-container"></div>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <a href="index.html" class="footer-logo-block">
+                <img src="img/logo.png" alt="Логотип">
+                <div class="logo-text">Профстрой+</div>
+            </a>
+            <div class="footer-info">
+                <p>Copyright © Профстрой+ 2025.</p>
+                <p>Все права защищены</p>
+            </div>
+            <div class="footer-contacts">
+                <p class="footer-phone">+7‒904‒307‒77‒94</p>
+                <p class="footer-address">456306, город Миасс, ​Готвальда 28, 2 этаж</p>
+            </div>
+        </div>
+    </footer>
+<!-- Регистрация по номеру (модальное окно) -->
+<div id="registerModal" class="modal register-modal" style="display:none;">
+  <div class="modal-content">
+    <span class="modal-close register-modal-close">&times;</span>
+    <h2>Регистрация</h2>
+    <p>Создайте аккаунт для быстрых заявок</p>
+    <form id="registerForm" class="register-form">
+      <input type="text" name="name" id="reg_name" placeholder="Ваше имя" required>
+      <input type="tel" name="phone" id="reg_phone" placeholder="+7 (XXX) XXX-XX-XX" required>
+       <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 24px; cursor: pointer;">
+                <input type="checkbox" required style="width: 18px; height: 18px; margin: 0;">
+                <span style="font-size: 14px; color: #333;">Я подтверждаю отправку своих данных</span>
+            </label>
+      <div style="margin-top:12px;">
+        <button type="submit" class="button-auth">Зарегистрироваться</button>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- Гамбургер меню для мобильных -->
+<input type="checkbox" id="burger-toggle">
+<label for="burger-toggle" class="burger-container">
+  <div class="burger-line"></div>
+  <div class="burger-line"></div>
+  <div class="burger-line"></div>
+</label>
+
+<nav class="mobile-nav-menu">
+  <div class="mobile-nav-header">
+    <a href="index.html" class="mobile-nav-logo">
+      <div class="logo-icon"><img src="img/logo.png" alt="Логотип" style="width: 100%; height: 100%; object-fit: contain;"></div>
+      <div class="logo-text">Профстрой+</div>
+    </a>
+  </div>
+  
+  <ul>
+    <li class="dropdown">
+      <a href="#services" class="dropdown-toggle">Услуги</a>
+      <ul class="dropdown-menu dropdown-menu--column">
+        <li><a href="index.html#services" data-service="balcony-renovation">Отделка балкона «под ключ»</a></li>
+        <li><a href="index.html#services" data-service="balcony-glazing">Остекление балконов и лоджий</a></li>
+        <li><a href="index.html#services" data-service="apartment-renovation">Ремонт квартир «под ключ»</a></li>
+        <li><a href="index.html#services" data-service="balcony-insulation">Утепление и обшивка балконов</a></li>
+        <li><a href="index.html#services" data-service="facade-renovation">Отделка фасадов домов</a></li>
+        <li><a href="index.html#services" data-service="stretch-ceilings">Установка натяжных потолков</a></li>
+      </ul>
+    </li>
+    <li><a href="projects.html">Проекты</a></li>
+    <li><a href="about.html">О нас</a></li>
+    <li><a href="contacts.html">Контакты</a></li>
+  </ul>
+</nav>
+
+<div class="menu-overlay"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
+<script>
+    function initMap() {
+    var miassCoordinates = [55.081623694489295, 60.0942629];
+
+    var myMap = new ymaps.Map('yandex-map', {
+        center: miassCoordinates,
+        zoom: 16,
+        controls: ['zoomControl', 'fullscreenControl']
+    }, {
+        searchControlProvider: 'yandex#search'
+    });
+
+    var myPlacemark = new ymaps.Placemark(miassCoordinates, {
+        hintContent: 'Мы здесь: Готвальда, 28, Миасс',
+        balloonContent: 'Наш офис. Профстрой+'
+    }, {
+        preset: 'islands#icon',
+        iconColor: '#FFA929'
+    });
+
+    myMap.geoObjects.add(myPlacemark);
+}
+
+if (typeof ymaps !== 'undefined') {
+    ymaps.ready(initMap);
+} else {
+    window.addEventListener('load', function () {
+        if (typeof ymaps !== 'undefined') {
+            ymaps.ready(initMap);
+        }
+    });
+}
+    
+    var swiper = new Swiper('.mySwiper', {
+    // slidesPerView: 3,
+    spaceBetween: 30,
+    loop: true,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+      1024: {
+        slidesPerView: 3,
+      },
+      768: {
+        slidesPerView: 2,
+      },
+      480: {
+        slidesPerView: 1,
+      },
+    },
+  });
+  /* ====== Регистрация по телефону (универсальный модуль) ====== */
+
+(function() {
+  // Удобные ссылки на элементы
+  const registerModal = document.getElementById('registerModal');
+  const registerForm = document.getElementById('registerForm');
+  const registerClose = document.querySelector('.register-modal-close');
+
+  // Функция для форматирования номера телефона (по вашему, вставьте свою функцию initPhoneFormatting)
+  function initPhoneFormatting() {
+    // Тут ваш код для форматирования номера, если есть
+  }
+
+  // Кнопка открытия регистрации - ищем элементы с классом .open-register и #openRegisterBtn
+  document.querySelectorAll('.open-register, #openRegisterBtn').forEach(el => {
+    el && el.addEventListener('click', function(e) {
+      e && e.preventDefault();
+      if (registerModal) {
+        registerModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        initPhoneFormatting();
+      }
+    });
+  });
+
+  // Закрытие крестиком
+  registerClose && registerClose.addEventListener('click', function() {
+    registerModal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  });
+
+  // Закрытие по клику вне окна
+  window.addEventListener('click', function(e) {
+    if (e.target === registerModal) {
+      registerModal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  });
+
+  // Валидация телефона
+  function sanitizeDigits(str) {
+    return (str || '').replace(/\D/g, '');
+  }
+
+  // Попытка регистрации через API или fallback
+  async function registerUser(payload) {
+    try {
+      const resp = await fetch('/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (resp.ok) {
+        const data = await resp.json();
+        return { source: 'server', data: data };
+      } else {
+        console.warn('Регистрация: сервер ответил не OK, используем localStorage');
+        return { source: 'local', data: payload };
+      }
+    } catch (err) {
+      console.warn('Регистрация: сетевой запрос не прошёл, fallback в localStorage', err);
+      return { source: 'local', data: payload };
+    }
+  }
+
+  // Обновление UI пользователя
+  function updateUserUI(user) {
+    let userBlock = document.getElementById('userBlock');
+    if (!userBlock) {
+      const headerContainer = document.querySelector('.header .header-container') || document.querySelector('.header');
+      if (headerContainer) {
+        userBlock = document.createElement('div');
+        userBlock.id = 'userBlock';
+        userBlock.style.marginLeft = '20px';
+        userBlock.style.display = 'flex';
+        userBlock.style.alignItems = 'center';
+        headerContainer.appendChild(userBlock);
+      }
+    }
+
+    if (userBlock) {
+      userBlock.innerHTML = `
+        <span style="display: inline-flex; align-items: center; margin-right: 12px;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="#FFA929" style="vertical-align: middle; margin-right: 4px;">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 12C14.2091 12 16 10.2091 16 8C16 5.79086 14.2091 4 12 4C9.79086 4 8 5.79086 8 8C8 10.2091 9.79086 12 12 12ZM12 14C15.3137 14 18 16.6863 18 20V21C18 21.5523 17.5523 22 17 22H7C6.44772 22 6 21.5523 6 21V20C6 16.6863 8.68629 14 12 14Z"/>
+          </svg>
+          ${escapeHtml(user.name)}
+        </span>
+        <button id="logoutBtn" style="padding:6px 10px;border-radius:6px;border:1px solid #ddd;background:#ba4646; color:white;cursor:pointer;">Выйти</button>
+      `;
+      const logoutBtn = document.getElementById('logoutBtn');
+      logoutBtn && logoutBtn.addEventListener('click', function() {
+        localStorage.removeItem('profstroy_user');
+        // Удаляем UI блока
+        if (userBlock) userBlock.remove();
+        // Показать кнопку входа
+        renderAuthButton();
+      });
+    }
+  }
+
+  // Защита от XSS
+  function escapeHtml(text) {
+    return text ? text.replace(/[&<>"'`=\/]/g, function(s) {
+      return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;','/':'&#x2F;','`':'&#x60;','=':'&#x3D;'})[s];
+    }) : '';
+  }
+
+  // Проверка и отображение кнопки входа / регистрации
+  function renderAuthButton() {
+    const raw = localStorage.getItem('profstroy_user');
+    const userExists = !!raw && (() => { try { JSON.parse(raw); return true; } catch(e) { return false; } })();
+
+    const userBlock = document.getElementById('userBlock');
+    const openBtn = document.getElementById('openRegisterBtn');
+
+    if (userExists) {
+      // Пользователь есть — скрываем кнопку входа
+      if (openBtn) {
+        openBtn.remove();
+      }
+      // UI для пользователя добавляется отдельно при входе
+    } else {
+      // Пользователя нет — показываем кнопку входа
+      if (!openBtn && !document.getElementById('userBlock')) {
+        const headerContainer = document.querySelector('.header .header-container') || document.querySelector('.header');
+        if (headerContainer) {
+          const btn = document.createElement('button');
+          btn.id = 'openRegisterBtn';
+          btn.className = 'button-auth';
+          btn.style.marginLeft = '12px';
+          btn.textContent = 'Войти / Регистрация';
+          headerContainer.appendChild(btn);
+          btn.addEventListener('click', function() {
+            registerModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            initPhoneFormatting();
+          });
+        }
+      }
+    }
+  }
+
+  // При загрузке страницы
+  document.addEventListener('DOMContentLoaded', function() {
+    // Проверяем есть ли пользователь
+    const raw = localStorage.getItem('profstroy_user');
+    if (raw) {
+      try {
+        const user = JSON.parse(raw);
+        updateUserUI(user);
+      } catch(e) {
+        console.warn('Ошибка чтения профиля из localStorage', e);
+      }
+    }
+    // Показываем кнопку входа/регистрации, если нужно
+    renderAuthButton();
+  });
+
+  // Обработка формы регистрации
+  registerForm && registerForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const name = (document.getElementById('reg_name').value || '').trim();
+    const phoneRaw = (document.getElementById('reg_phone').value || '').trim();
+    const digits = sanitizeDigits(phoneRaw);
+
+    if (!name) {
+      alert('Пожалуйста, укажите имя.');
+      return;
+    }
+    if (digits.length < 11) {
+      alert('Введите корректный телефон (пример: +7 (999) 123-45-67).');
+      return;
+    }
+
+    const payload = { name: name, phone: phoneRaw };
+
+    // Индикатор сабмита
+    const submitBtn = registerForm.querySelector('button[type="submit"]');
+    const prevText = submitBtn ? submitBtn.textContent : null;
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Регистрация...';
+    }
+
+    const result = await registerUser(payload);
+
+    if (result) {
+      if (result.source === 'server') {
+        const userData = (result.data && result.data.user) ? result.data.user : payload;
+        // Сохраняем и показываем UI
+        finalizeLogin(userData);
+        alert('Регистрация завершена (через сервер).');
+      } else {
+        // Локальная регистрация
+        finalizeLogin(payload);
+        alert('Регистрация завершена (локально).');
+      }
+      // После успешной регистрации скрываем модальное окно
+      registerModal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+
+      // Обновляем кнопку/интерфейс
+      renderAuthButton();
+
+    } else {
+      alert('Не удалось зарегистрироваться. Попробуйте снова.');
+    }
+
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = prevText || 'Зарегистрироваться';
+    }
+  });
+
+  // После входа — сохраняем и обновляем интерфейс
+  function finalizeLogin(userData) {
+    const user = {
+      name: userData.name,
+      phone: userData.phone,
+      createdAt: new Date().toISOString()
+    };
+    localStorage.setItem('profstroy_user', JSON.stringify(user));
+    updateUserUI(user);
+    // Обновляем кнопку входа/регистрации
+    renderAuthButton();
+  }
+
+  // Изначально при загрузке страницы проверяем и показываем правильный интерфейс
+  document.addEventListener('DOMContentLoaded', function() {
+    // Проверка пользователя
+    const raw = localStorage.getItem('profstroy_user');
+    if (raw) {
+      try {
+        const user = JSON.parse(raw);
+        updateUserUI(user);
+      } catch(e) {
+        console.warn('Ошибка чтения профиля из localStorage', e);
+      }
+    }
+    // Обновляем кнопку входа/регистрации
+    renderAuthButton();
+  });
+
+  // Обработчик выхода
+  // Уже реализован внутри updateUserUI при клике на кнопку "Выйти"
+
+})();
+// ===== Универсальное гамбургер меню для всех страниц =====
+document.addEventListener('DOMContentLoaded', function() {
+  // Инициализация мобильного меню
+  const burgerToggle = document.getElementById('burger-toggle');
+  const menuOverlay = document.querySelector('.menu-overlay');
+  
+  // Определяем текущую страницу для подсветки активного пункта
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  
+  // Подсвечиваем активный пункт меню
+  setTimeout(() => {
+    const menuLinks = document.querySelectorAll('.mobile-nav-menu a[href]');
+    menuLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === currentPage || 
+          (currentPage === 'index.html' && href.includes('index.html')) ||
+          (currentPage.includes('projects') && href.includes('projects')) ||
+          (currentPage.includes('about') && href.includes('about')) ||
+          (currentPage.includes('contacts') && href.includes('contacts'))) {
+        link.classList.add('active');
+      }
+    });
+  }, 100);
+  
+  // Закрытие меню при клике на оверлей
+  if (menuOverlay) {
+    menuOverlay.addEventListener('click', function() {
+      burgerToggle.checked = false;
+      document.body.style.overflow = 'auto';
+    });
+  }
+  
+  // Закрытие меню при клике на ссылку
+  const mobileLinks = document.querySelectorAll('.mobile-nav-menu a');
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      // Для ссылок с data-service (услуги)
+      if (this.hasAttribute('data-service')) {
+        e.preventDefault();
+        const serviceId = this.getAttribute('data-service');
+        const modal = document.getElementById(`${serviceId}-modal`);
+        
+        if (modal) {
+          // Закрываем меню
+          burgerToggle.checked = false;
+          document.body.style.overflow = 'auto';
+          
+          // Открываем модальное окно услуги
+          setTimeout(() => {
+            document.querySelectorAll('.service-modal').forEach(m => {
+              m.style.display = 'none';
+            });
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+          }, 300);
+          
+          // Прокручиваем к услугам
+          const servicesSection = document.getElementById('services');
+          if (servicesSection) {
+            setTimeout(() => {
+              servicesSection.scrollIntoView({
+                behavior: 'smooth'
+              });
+            }, 350);
+          }
+        }
+      } 
+      // Для якорных ссылок на текущей странице
+      else if (this.getAttribute('href').startsWith('#')) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          // Закрываем меню
+          burgerToggle.checked = false;
+          document.body.style.overflow = 'auto';
+          
+          // Прокручиваем к секции
+          setTimeout(() => {
+            const headerHeight = document.querySelector('.header').offsetHeight;
+            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+            
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+          }, 300);
+        }
+      } 
+      // Для внешних ссылок (другие страницы)
+      else if (!this.getAttribute('href').startsWith('#')) {
+        // Даем время на закрытие меню перед переходом
+        e.preventDefault();
+        burgerToggle.checked = false;
+        document.body.style.overflow = 'auto';
+        
+        const href = this.getAttribute('href');
+        setTimeout(() => {
+          window.location.href = href;
+        }, 300);
+      }
+    });
+  });
+  
+  // Обработка dropdown в мобильном меню
+  const mobileDropdowns = document.querySelectorAll('.mobile-nav-menu .dropdown-toggle');
+  mobileDropdowns.forEach(toggle => {
+    toggle.addEventListener('click', function(e) {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        e.stopPropagation();
+        const dropdown = this.parentElement;
+        const isActive = dropdown.classList.contains('active');
+        
+        // Закрываем все остальные dropdown
+        document.querySelectorAll('.mobile-nav-menu .dropdown').forEach(d => {
+          if (d !== dropdown) {
+            d.classList.remove('active');
+          }
+        });
+        
+        // Переключаем текущий dropdown
+        dropdown.classList.toggle('active', !isActive);
+      }
+    });
+  });
+  
+  // Закрытие dropdown при клике вне их
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.mobile-nav-menu .dropdown') && window.innerWidth <= 768) {
+      document.querySelectorAll('.mobile-nav-menu .dropdown').forEach(d => {
+        d.classList.remove('active');
+      });
+    }
+  });
+  
+  // Закрытие меню при нажатии ESC
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && burgerToggle && burgerToggle.checked) {
+      burgerToggle.checked = false;
+      document.body.style.overflow = 'auto';
+    }
+  });
+  
+  // Закрытие меню при изменении размера окна на десктоп
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 768 && burgerToggle && burgerToggle.checked) {
+      burgerToggle.checked = false;
+      document.body.style.overflow = 'auto';
+    }
+  });
+  
+  // Управление overflow body при открытии/закрытии меню
+  if (burgerToggle) {
+    burgerToggle.addEventListener('change', function() {
+      if (this.checked) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'auto';
+      }
+    });
+  }
+});
+</script>
+</body>
+
+</html>

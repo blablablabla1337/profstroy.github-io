@@ -1,0 +1,1890 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Профстрой+ - Контакты">
+    <title>Контакты | Профстрой+</title>
+    <link rel="icon" type="image/png" href="https://proffstroi.ru/wp-content/uploads/2021/01/logo.png">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-weight: bold;
+            color: white;
+            font-size: 18px;
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 700;
+            color: black;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover .logo-text {
+            color: #FFA929;
+        }
+
+        .header ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .header li {
+            margin-left: 30px;
+        }
+
+        .header a {
+            text-decoration: none;
+            color: black;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s ease;
+            padding: 5px 0;
+        }
+
+        .header a:hover {
+            color: #FFA929;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 280px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            padding: 10px 0;
+            list-style: none;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .dropdown-menu--column {
+            flex-direction: column;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu li {
+            margin: 0;
+            padding: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 12px 20px;
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f8f9fa;
+            padding-left: 25px;
+        }
+
+        .contacts-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+            url('img/builders.jpg') center/cover no-repeat;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+        }
+
+        .contacts-hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .contacts-hero-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .contact-section {
+            padding: 80px 20px;
+            background-color: #fff;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-title {
+            font-size: 32px;
+            font-weight: 600;
+            color: black;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .contact-info h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: black;
+            margin-bottom: 30px;
+        }
+
+        .contact-details {
+            margin-bottom: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #FFA929;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+            color: white;
+        }
+
+        .contact-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .contact-text h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: black;
+            margin-bottom: 5px;
+        }
+
+        .contact-text p {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .contact-text a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-text a:hover {
+            color: #FFA929;
+        }
+
+        .work-hours {
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .work-hours h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: black;
+            margin-bottom: 15px;
+        }
+
+        .work-hours p {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .contact-form-container {
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .contact-form-container h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: black;
+            margin-bottom: 20px;
+        }
+
+        .contact-form-container p {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: black;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-button {
+            background-color: #FFA929;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-button:hover {
+            background-color: #e6951f;
+        }
+
+        .faq-section {
+            padding: 80px 20px;
+        }
+
+        .faq-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .faq-title {
+            font-size: 32px;
+            font-weight: 600;
+            color: black;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .faq-item {
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .faq-item h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: black;
+            margin-bottom: 15px;
+        }
+
+        .faq-item p {
+            font-size: 15px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .yandex-map-container {
+            width: 100%;
+            height: 500px;
+            margin-bottom: 40px;
+        }
+
+        .main-footer {
+            background-color: #fff;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .footer-logo-block {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            flex-basis: 250px;
+        }
+
+        .footer-logo-block img {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            margin-right: 10px;
+            object-fit: contain;
+        }
+
+        .footer-logo-block .logo-text {
+            font-size: 22px;
+            font-weight: 700;
+            color: black;
+            transition: color 0.3s ease;
+        }
+
+        .footer-info {
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .footer-info p {
+            margin: 5px 0;
+        }
+
+        .footer-contacts {
+            text-align: right;
+            flex-basis: 300px;
+        }
+
+        .footer-phone {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .footer-address {
+            margin-top: 5px;
+        }
+
+        @media (max-width: 992px) {
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .footer-logo-block, .footer-contacts {
+                flex-basis: auto;
+                width: 100%;
+                text-align: center;
+                margin-bottom: 0;
+            }
+
+            .footer-info {
+                order: 3;
+                margin-bottom: 0;
+            }
+
+            .footer-contacts {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 15px 20px;
+            }
+
+            .logo {
+                margin-bottom: 15px;
+            }
+
+            .header ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .header li {
+                margin: 0 10px 10px;
+            }
+            
+            .contacts-hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .contacts-hero-content p {
+                font-size: 1rem;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background: transparent;
+                display: none;
+            }
+
+            .dropdown:hover .dropdown-menu {
+                display: block;
+            }
+
+            .dropdown-menu a {
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        section {
+            scroll-margin-top: 80px;
+        }
+
+        @media (max-width: 768px) {
+            html {
+                scroll-padding-top: 120px;
+            }
+            
+            section {
+                scroll-margin-top: 120px;
+            }
+        }
+
+        /* Новые стили для модального окна */
+.alert-modal {
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.alert-modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+    max-width: 400px;
+    width: 80%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.alert-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Крестик в модалках */
+.modal-close {
+    position: absolute;
+    right: 16px;
+    top: 12px;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+    color: #333;
+    background: transparent;
+    border: none;
+}
+
+/* Немного стиль для модалки регистрации (адаптивно) */
+.register-modal .modal-content {
+    max-width: 420px;
+    max-height: 300px;
+    width: 90%;
+    padding: 20px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.register-form input[type="text"],
+.register-form input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.button-auth {
+    background-color: #FFA929;
+    border: 1px solid #FFA929;
+    color: white;
+    padding: 15px 30px;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.button-auth:hover {
+    background-color: #e6951f;
+    transform: translateY(-2px);
+}
+        /* Стили для модального окна */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Добавьте этот код в конец секции <style> в файле contacts.html */
+
+/* Бордер 2px при фокусе во всех полях форм */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus,
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus,
+.register-form input:focus,
+.register-form select:focus,
+.register-form textarea:focus {
+    outline: none;
+    border: 2px solid black !important;
+    box-shadow: 0 0 5px rgba(255, 169, 41, 0.3);
+}
+
+/* Для модальных окон регистрации в contacts.html */
+#registerModal input:focus,
+#registerModal select:focus,
+#registerModal textarea:focus {
+    border: 2px solid black !important;
+    outline: none;
+}
+
+/* Стилизация скроллбара для Chrome, Edge, Safari */
+::-webkit-scrollbar {
+    width: 12px; /* Ширина вертикального скроллбара */
+    height: 12px; /* Высота горизонтального скроллбара */
+}
+
+::-webkit-scrollbar-track {
+    background: #f8f9fa; /* Цвет фона трека */
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #FFA929; /* Желтый цвет ползунка */
+    border-radius: 6px;
+    border: 3px solid #f8f9fa; /* Отступ вокруг ползунка */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #e6951f; /* Более темный желтый при наведении */
+}
+
+/* Стилизация для Firefox */
+* {
+    scrollbar-width: thin; /* Тонкая полоса */
+    scrollbar-color: #FFA929 #f8f9fa; /* Ползунок и трек */
+}
+
+/* Добавьте в существующий CSS-блок */
+#successModal .modal-content {
+  max-width: 450px;
+  text-align: center;
+}
+
+/* ===== Гамбургер меню для мобильных устройств ===== */
+
+/* Переменные для гамбургер-меню в стиле сайта */
+:root {
+  --burger-primary: #FFA929;
+  --burger-accent: #FFA929;
+  --burger-background: #ffffff;
+  --burger-text: #333;
+  --burger-hover: #e6951f;
+  --menu-background: rgba(255, 255, 255, 0.98);
+  --menu-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Гамбургер контейнер - скрыт на десктопе */
+.burger-container {
+  display: none;
+  position: fixed;
+  top: 25px;
+  right: 20px;
+  z-index: 1001;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: var(--menu-shadow);
+  border: 1px solid rgba(255, 169, 41, 0.2);
+  transition: all 0.3s ease;
+}
+
+.burger-container:hover {
+  background: white;
+  box-shadow: 0 6px 25px rgba(255, 169, 41, 0.15);
+  border-color: var(--burger-accent);
+}
+
+.burger-line {
+  width: 24px;
+  height: 3px;
+  background-color: var(--burger-primary);
+  border-radius: 2px;
+  transform-origin: center;
+  transition: all 0.4s cubic-bezier(0.77, 0.2, 0.05, 1);
+  margin: 3px 0;
+}
+
+/* Чекбокс для управления меню */
+#burger-toggle {
+  display: none;
+}
+
+/* Мобильное меню - скрыто на десктопе */
+.mobile-nav-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 320px;
+  height: 100%;
+  background: var(--menu-background);
+  transition: all 0.4s cubic-bezier(0.77, 0.2, 0.05, 1);
+  box-shadow: var(--menu-shadow);
+  overflow-y: auto;
+  z-index: 1000;
+  padding-top: 80px;
+  backdrop-filter: blur(10px);
+}
+
+.mobile-nav-menu::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: linear-gradient(135deg, #FFA929 0%, #e6951f 100%);
+}
+
+.mobile-nav-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1;
+}
+
+.mobile-nav-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.mobile-nav-logo .logo-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  background: white;
+}
+
+.mobile-nav-logo .logo-text {
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+}
+
+.mobile-nav-menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-nav-menu ul li {
+  margin: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.mobile-nav-menu ul li:first-child {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.mobile-nav-menu ul li a {
+  color: var(--burger-text);
+  text-decoration: none;
+  display: block;
+  padding: 18px 25px;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.mobile-nav-menu ul li a:hover {
+  color: var(--burger-accent);
+  background: rgba(255, 169, 41, 0.05);
+  padding-left: 30px;
+}
+
+.mobile-nav-menu ul li a.active {
+  color: var(--burger-accent);
+  background: rgba(255, 169, 41, 0.08);
+  border-left: 4px solid var(--burger-accent);
+}
+
+.mobile-nav-menu ul li a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: var(--burger-accent);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.mobile-nav-menu ul li a:hover::before {
+  transform: scaleY(1);
+}
+
+/* Анимация гамбургер-иконки */
+#burger-toggle:checked ~ .burger-container {
+  background: white;
+  border-color: var(--burger-accent);
+}
+
+#burger-toggle:checked ~ .burger-container .burger-line:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+  background-color: var(--burger-accent);
+}
+
+#burger-toggle:checked ~ .burger-container .burger-line:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+#burger-toggle:checked ~ .burger-container .burger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+  background-color: var(--burger-accent);
+}
+
+/* Выдвижение меню */
+#burger-toggle:checked ~ .mobile-nav-menu {
+  right: 0;
+}
+
+/* Затемнение фона при открытом меню */
+.menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(3px);
+  z-index: 999;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+#burger-toggle:checked ~ .menu-overlay {
+  display: block;
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+  /* Показываем гамбургер-меню на мобильных */
+  .burger-container {
+    display: flex;
+  }
+  
+  /* Скрываем основное меню на мобильных */
+  .header .header-container ul {
+    display: none !important;
+  }
+  
+  /* Показываем мобильное меню */
+  .mobile-nav-menu {
+    display: block;
+  }
+  
+  /* Адаптируем шапку для мобильных */
+  .header-container {
+    justify-content: center !important;
+    padding: 15px 20px !important;
+  }
+  
+  .logo {
+    margin-bottom: 0 !important;
+  }
+  
+  .logo-text {
+    font-size: 20px !important;
+  }
+  
+  /* Улучшаем отображение dropdown в мобильном меню */
+  .mobile-nav-menu .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    background: rgba(0, 0, 0, 0.02);
+    display: none;
+    padding-left: 0;
+    margin-top: 0;
+  }
+  
+  .mobile-nav-menu .dropdown.active .dropdown-menu {
+    display: block;
+    animation: slideDown 0.3s ease;
+  }
+  
+  @keyframes slideDown {
+    from { 
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .mobile-nav-menu .dropdown-menu li {
+    border-bottom: none;
+  }
+  
+  .mobile-nav-menu .dropdown-menu a {
+    padding: 14px 25px 14px 40px;
+    font-size: 15px;
+    font-weight: 500;
+    color: rgba(51, 51, 51, 0.9);
+    background: rgba(255, 169, 41, 0.03);
+    border-left: 2px solid rgba(255, 169, 41, 0.3);
+  }
+  
+  .mobile-nav-menu .dropdown-menu a:hover {
+    color: var(--burger-accent);
+    background: rgba(255, 169, 41, 0.08);
+    padding-left: 45px;
+  }
+  
+  /* Стрелка для dropdown */
+  .mobile-nav-menu .dropdown > a::after {
+    content: "›";
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    font-size: 20px;
+    color: rgba(51, 51, 51, 0.5);
+    transition: transform 0.3s ease;
+  }
+  
+  .mobile-nav-menu .dropdown.active > a::after {
+    transform: translateY(-50%) rotate(-90deg);
+    color: var(--burger-accent);
+  }
+}
+
+/* Десктопная версия - гамбургер скрыт */
+@media (min-width: 769px) {
+  .burger-container,
+  .mobile-nav-menu,
+  .menu-overlay {
+    display: none !important;
+  }
+  
+  .header .header-container ul {
+    display: flex !important;
+  }
+}
+
+/* Анимация для мобильного меню */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.mobile-nav-menu ul li {
+  animation: slideIn 0.4s ease forwards;
+  opacity: 0;
+}
+
+.mobile-nav-menu ul li:nth-child(1) { animation-delay: 0.1s; }
+.mobile-nav-menu ul li:nth-child(2) { animation-delay: 0.15s; }
+.mobile-nav-menu ul li:nth-child(3) { animation-delay: 0.2s; }
+.mobile-nav-menu ul li:nth-child(4) { animation-delay: 0.25s; }
+.mobile-nav-menu ul li:nth-child(5) { animation-delay: 0.3s; }
+
+@media (max-width: 768px) {
+  .header-container {
+    padding: 15px 20px !important;
+    gap: 15px !important; /* Добавляем отступ между лого и кнопкой */
+    flex-wrap: wrap !important; /* Позволяем элементам переноситься */
+    justify-content: space-between !important;
+  }
+  
+  .logo {
+    margin-bottom: 0 !important;
+    flex: 1; /* Занимает доступное пространство */
+  }
+  
+  /* Стили для кнопки авторизации на мобильных */
+  .button-auth, #openRegisterBtn {
+    padding: 10px 15px !important;
+    font-size: 14px !important;
+    white-space: nowrap; /* Текст не переносится */
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+    min-width: 140px; /* Минимальная ширина для читаемости */
+  }
+  
+  /* Для пользовательского блока на мобильных */
+  #userBlock {
+    flex: 1;
+    justify-content: flex-end;
+    margin-left: 0 !important;
+    padding: 5px 0;
+  }
+  
+  #userBlock span {
+    font-size: 14px !important;
+  }
+  
+  #logoutBtn {
+    padding: 5px 8px !important;
+    font-size: 12px !important;
+  }
+}
+    </style>
+</head>
+
+<body>
+    <nav class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><img src="img/logo.png" alt="Логотип"></div>
+                <div class="logo-text">Профстрой+</div>
+            </a>
+            <ul>
+                <li class="dropdown">
+                    <a href="index.html#services">Услуги</a>
+                    <ul class="dropdown-menu dropdown-menu--column">
+                        <li><a href="index.html#services" data-service="balcony-renovation">Отделка балкона «под ключ»</a></li>
+                        <li><a href="index.html#services" data-service="balcony-glazing">Остекление балконов и лоджий</a></li>
+                        <li><a href="index.html#services" data-service="apartment-renovation">Ремонт квартир «под ключ»</a></li>
+                        <li><a href="index.html#services" data-service="balcony-insulation">Утепление и обшивка балконов</a></li>
+                        <li><a href="index.html#services" data-service="facade-renovation">Отделка фасадов домов</a></li>
+                        <li><a href="index.html#services" data-service="stretch-ceilings">Установка натяжных потолков</a></li>
+                    </ul>
+                </li>
+                <li><a href="projects.html">Проекты</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="contacts.html" class="active">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="contacts-hero">
+        <div class="contacts-hero-content">
+            <h1>Контакты</h1>
+            <p>Свяжитесь с нами любым удобным способом. Мы всегда рады помочь вам с ремонтом и ответить на все вопросы</p>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="contact-container">
+            <h2 class="contact-title">Свяжитесь с нами</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Контактная информация</h2>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Телефон</h3>
+                                <p><a href="tel:+79043077794">+7‒904‒307‒77‒94</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
+                                    <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
+                                </svg>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Электронная почта</h3>
+                                <p><a href="mailto:profstroyplus@yandex.ru">profstroyplus@yandex.ru</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Адрес офиса</h3>
+                                <p>456306, город Миасс, ул. Готвальда, 28, 2 этаж</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 6a.75.75 0 00-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 000-1.5h-3.75V6z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Время работы</h3>
+                                <p>Понедельник - Суббота: 9:00-18:00</p>
+                                <p>Воскресенье: выходной</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="work-hours">
+                        <h3>Бесплатная консультация</h3>
+                        <p>Мы предлагаем бесплатный выезд специалиста для оценки объекта и консультации в удобное для вас время.</p>
+                        <p>Просто свяжитесь с нами по телефону, и мы договоримся о встрече.</p>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <h2>Оставьте заявку</h2>
+                    <p>Заполните форму ниже, и наш специалист свяжется с вами в течение 15 минут для бесплатной консультации</p>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Ваше имя *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Телефон *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Электронная почта</label>
+                            <input type="email" id="email" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Интересующая услуга</label>
+                            <select id="service" name="service">
+                                <option value="" selected disabled>Выберите услугу</option>
+                                <option value="balcony-renovation">Отделка балкона «под ключ»</option>
+                                <option value="balcony-glazing">Остекление балконов и лоджий</option>
+                                <option value="apartment-renovation">Ремонт квартир «под ключ»</option>
+                                <option value="balcony-insulation">Утепление и обшивка балконов</option>
+                                <option value="facade-renovation">Отделка фасадов домов</option>
+                                <option value="stretch-ceilings">Установка натяжных потолков</option>
+                                <option value="consultation">Консультация</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Сообщение</label>
+                            <textarea id="message" name="message" placeholder="Опишите вашу задачу или задайте вопрос..."></textarea>
+                        </div>
+                         <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 24px; cursor: pointer;">
+                <input type="checkbox" required style="width: 18px; height: 18px; margin: 0;">
+                <span style="font-size: 14px; color: #333;">Я подтверждаю отправку своих данных</span>
+            </label>
+                        <button type="submit" class="submit-button">Отправить заявку</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="yandex-map" class="yandex-map-container"></div>
+
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2 class="faq-title">Часто задаваемые вопросы</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>Как быстро вы сможете начать работу?</h3>
+                    <p>Мы можем начать работы в течение 3-5 дней после заключения договора. В некоторых случаях (при небольшом объеме работ) можем выехать на объект уже на следующий день.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Предоставляете ли вы гарантию на работы?</h3>
+                    <p>Да, мы предоставляем официальную гарантию на все виды работ: 3 года на отделочные работы, 5 лет на остекление, 10 лет на натяжные потолки.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Можно ли посмотреть ваши выполненные работы?</h3>
+                    <p>Конечно! Вы можете посмотреть наши реализованные проекты в разделе "Проекты" на сайте или договориться о выезде на один из текущих объектов.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Работаете ли вы с дизайнерами?</h3>
+                    <p>Да, мы активно сотрудничаем с дизайнерами. Можем работать как по готовому дизайн-проекту, так и предложить услуги наших партнеров-дизайнеров.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Можно ли закупить материалы самостоятельно?</h3>
+                    <p>Да, вы можете закупить материалы самостоятельно. Однако мы рекомендуем доверить это нам, так как мы работаем с проверенными поставщиками и получаем скидки, которые передаем клиентам.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Как происходит оплата работ?</h3>
+                    <p>Мы работаем по гибкой системе оплаты: 20% предоплата, 40% после выполнения черновых работ, 40% после сдачи объекта. Возможны индивидуальные условия для крупных проектов.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <a href="index.html" class="footer-logo-block">
+                <img src="img/logo.png" alt="Логотип">
+                <div class="logo-text">Профстрой+</div>
+            </a>
+            <div class="footer-info">
+                <p>Copyright © Профстрой+ 2025.</p>
+                <p>Все права защищены</p>
+            </div>
+            <div class="footer-contacts">
+                <p class="footer-phone">+7‒904‒307‒77‒94</p>
+                <p class="footer-address">456306, город Миасс, ​Готвальда 28, 2 этаж</p>
+            </div>
+        </div>
+    </footer>
+<!-- Регистрация по номеру (модальное окно) -->
+<div id="registerModal" class="modal register-modal" style="display:none;">
+  <div class="modal-content">
+    <span class="modal-close register-modal-close">&times;</span>
+    <h2>Регистрация</h2>
+    <p>Создайте аккаунт для быстрых заявок</p>
+    <form id="registerForm" class="register-form">
+      <input type="text" name="name" id="reg_name" placeholder="Ваше имя" required>
+      <input type="tel" name="phone" id="reg_phone" placeholder="+7 (XXX) XXX-XX-XX" required>
+       <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 24px; cursor: pointer;">
+                <input type="checkbox" required style="width: 18px; height: 18px; margin: 0;">
+                <span style="font-size: 14px; color: #333;">Я подтверждаю отправку своих данных</span>
+            </label>
+      <div style="margin-top:12px;">
+        <button type="submit" class="button-auth">Зарегистрироваться</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="successModal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <span class="modal-close" onclick="closeSuccessModal()">&times;</span>
+    <div style="text-align: center; padding: 20px;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="#4CAF50" style="margin-bottom: 20px;">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+      </svg>
+      <h2 style="color: #333; margin-bottom: 15px;">Спасибо за заявку!</h2>
+      <p id="successMessage" style="color: #555; font-size: 16px; line-height: 1.5;">
+        <!-- Сообщение будет вставлено сюда через JavaScript -->
+      </p>
+      <button onclick="closeSuccessModal()" style="
+        background-color: #FFA929;
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: background-color 0.3s;
+      ">Хорошо</button>
+    </div>
+  </div>
+</div>
+
+<!-- Гамбургер меню для мобильных -->
+<input type="checkbox" id="burger-toggle">
+<label for="burger-toggle" class="burger-container">
+  <div class="burger-line"></div>
+  <div class="burger-line"></div>
+  <div class="burger-line"></div>
+</label>
+
+<nav class="mobile-nav-menu">
+  <div class="mobile-nav-header">
+    <a href="index.html" class="mobile-nav-logo">
+      <div class="logo-icon"><img src="img/logo.png" alt="Логотип" style="width: 100%; height: 100%; object-fit: contain;"></div>
+      <div class="logo-text">Профстрой+</div>
+    </a>
+  </div>
+  
+  <ul>
+    <li class="dropdown">
+      <a href="#services" class="dropdown-toggle">Услуги</a>
+      <ul class="dropdown-menu dropdown-menu--column">
+        <li><a href="index.html#services" data-service="balcony-renovation">Отделка балкона «под ключ»</a></li>
+        <li><a href="index.html#services" data-service="balcony-glazing">Остекление балконов и лоджий</a></li>
+        <li><a href="index.html#services" data-service="apartment-renovation">Ремонт квартир «под ключ»</a></li>
+        <li><a href="index.html#services" data-service="balcony-insulation">Утепление и обшивка балконов</a></li>
+        <li><a href="index.html#services" data-service="facade-renovation">Отделка фасадов домов</a></li>
+        <li><a href="index.html#services" data-service="stretch-ceilings">Установка натяжных потолков</a></li>
+      </ul>
+    </li>
+    <li><a href="projects.html">Проекты</a></li>
+    <li><a href="about.html">О нас</a></li>
+    <li><a href="contacts.html">Контакты</a></li>
+  </ul>
+</nav>
+
+<div class="menu-overlay"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=f6b2c2ef-1d14-489d-a4a1-90070dd7d005" type="text/javascript"></script>
+    <script>
+        function initMap() {
+            var miassCoordinates = [55.081623694489295, 60.0942629];
+
+            var myMap = new ymaps.Map('yandex-map', {
+                center: miassCoordinates,
+                zoom: 16,
+                controls: ['zoomControl', 'fullscreenControl']
+            }, {
+                searchControlProvider: 'yandex#search'
+            });
+
+            var myPlacemark = new ymaps.Placemark(miassCoordinates, {
+                hintContent: 'Мы здесь: Готвальда, 28, Миасс',
+                balloonContent: `
+                    <div style="padding: 10px;">
+                        <h3 style="margin: 0 0 10px 0;">Профстрой+</h3>
+                        <p style="margin: 0 0 5px 0;">ул. Готвальда, 28, 2 этаж</p>
+                        <p style="margin: 0 0 5px 0;">+7‒904‒307‒77‒94</p>
+                        <p style="margin: 0;">Пн-Сб: 9:00-18:00</p>
+                    </div>
+                `
+            }, {
+                preset: 'islands#icon',
+                iconColor: '#FFA929'
+            });
+
+            myMap.geoObjects.add(myPlacemark);
+        }
+
+        if (typeof ymaps !== 'undefined') {
+            ymaps.ready(initMap);
+        } else {
+            window.addEventListener('load', function () {
+                if (typeof ymaps !== 'undefined') {
+                    ymaps.ready(initMap);
+                }
+            });
+        }
+
+        // document.querySelector('.contact-form').addEventListener('submit', function(e) {
+        //     e.preventDefault();
+        
+        //     alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в течение 15 минут.');
+        //     this.reset();
+        // });
+
+        function formatPhoneInput(e) {
+            let x = e.target.value.replace(/\D/g, '').match(/(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
+            e.target.value = '+7' + (x[2] ? ' (' + x[2] : '') + (x[3] ? ') ' + x[3] : '') + (x[4] ? '-' + x[4] : '') + (x[5] ? '-' + x[5] : '');
+        }
+
+        const phoneInput = document.getElementById('phone');
+        phoneInput.addEventListener('input', formatPhoneInput);
+
+        /* ====== Регистрация по телефону (универсальный модуль) ====== */
+
+(function() {
+  // Удобные ссылки на элементы
+  const registerModal = document.getElementById('registerModal');
+  const registerForm = document.getElementById('registerForm');
+  const registerClose = document.querySelector('.register-modal-close');
+
+  // Функция для форматирования номера телефона (по вашему, вставьте свою функцию initPhoneFormatting)
+  function initPhoneFormatting() {
+    // Тут ваш код для форматирования номера, если есть
+  }
+
+  // Кнопка открытия регистрации - ищем элементы с классом .open-register и #openRegisterBtn
+  document.querySelectorAll('.open-register, #openRegisterBtn').forEach(el => {
+    el && el.addEventListener('click', function(e) {
+      e && e.preventDefault();
+      if (registerModal) {
+        registerModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        initPhoneFormatting();
+      }
+    });
+  });
+
+  // Закрытие крестиком
+  registerClose && registerClose.addEventListener('click', function() {
+    registerModal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  });
+
+  // Закрытие по клику вне окна
+  window.addEventListener('click', function(e) {
+    if (e.target === registerModal) {
+      registerModal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  });
+
+  // Валидация телефона
+  function sanitizeDigits(str) {
+    return (str || '').replace(/\D/g, '');
+  }
+
+  // Попытка регистрации через API или fallback
+  async function registerUser(payload) {
+    try {
+      const resp = await fetch('/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (resp.ok) {
+        const data = await resp.json();
+        return { source: 'server', data: data };
+      } else {
+        console.warn('Регистрация: сервер ответил не OK, используем localStorage');
+        return { source: 'local', data: payload };
+      }
+    } catch (err) {
+      console.warn('Регистрация: сетевой запрос не прошёл, fallback в localStorage', err);
+      return { source: 'local', data: payload };
+    }
+  }
+
+  // Обновление UI пользователя
+  function updateUserUI(user) {
+    let userBlock = document.getElementById('userBlock');
+    if (!userBlock) {
+      const headerContainer = document.querySelector('.header .header-container') || document.querySelector('.header');
+      if (headerContainer) {
+        userBlock = document.createElement('div');
+        userBlock.id = 'userBlock';
+        userBlock.style.marginLeft = '20px';
+        userBlock.style.display = 'flex';
+        userBlock.style.alignItems = 'center';
+        headerContainer.appendChild(userBlock);
+      }
+    }
+
+    if (userBlock) {
+      userBlock.innerHTML = `
+        <span style="display: inline-flex; align-items: center; margin-right: 12px;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="#FFA929" style="vertical-align: middle; margin-right: 4px;">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 12C14.2091 12 16 10.2091 16 8C16 5.79086 14.2091 4 12 4C9.79086 4 8 5.79086 8 8C8 10.2091 9.79086 12 12 12ZM12 14C15.3137 14 18 16.6863 18 20V21C18 21.5523 17.5523 22 17 22H7C6.44772 22 6 21.5523 6 21V20C6 16.6863 8.68629 14 12 14Z"/>
+          </svg>
+          ${escapeHtml(user.name)}
+        </span>
+        <button id="logoutBtn" style="padding:6px 10px;border-radius:6px;border:1px solid #ddd;background:#ba4646; color:white;cursor:pointer;">Выйти</button>
+      `;
+      const logoutBtn = document.getElementById('logoutBtn');
+      logoutBtn && logoutBtn.addEventListener('click', function() {
+        localStorage.removeItem('profstroy_user');
+        // Удаляем UI блока
+        if (userBlock) userBlock.remove();
+        // Показать кнопку входа
+        renderAuthButton();
+      });
+    }
+  }
+
+  // Защита от XSS
+  function escapeHtml(text) {
+    return text ? text.replace(/[&<>"'`=\/]/g, function(s) {
+      return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;','/':'&#x2F;','`':'&#x60;','=':'&#x3D;'})[s];
+    }) : '';
+  }
+
+  // Проверка и отображение кнопки входа / регистрации
+  function renderAuthButton() {
+    const raw = localStorage.getItem('profstroy_user');
+    const userExists = !!raw && (() => { try { JSON.parse(raw); return true; } catch(e) { return false; } })();
+
+    const userBlock = document.getElementById('userBlock');
+    const openBtn = document.getElementById('openRegisterBtn');
+
+    if (userExists) {
+      // Пользователь есть — скрываем кнопку входа
+      if (openBtn) {
+        openBtn.remove();
+      }
+      // UI для пользователя добавляется отдельно при входе
+    } else {
+      // Пользователя нет — показываем кнопку входа
+      if (!openBtn && !document.getElementById('userBlock')) {
+        const headerContainer = document.querySelector('.header .header-container') || document.querySelector('.header');
+        if (headerContainer) {
+          const btn = document.createElement('button');
+          btn.id = 'openRegisterBtn';
+          btn.className = 'button-auth';
+          btn.style.marginLeft = '12px';
+          btn.textContent = 'Войти / Регистрация';
+          headerContainer.appendChild(btn);
+          btn.addEventListener('click', function() {
+            registerModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            initPhoneFormatting();
+          });
+        }
+      }
+    }
+  }
+
+  // При загрузке страницы
+  document.addEventListener('DOMContentLoaded', function() {
+    // Проверяем есть ли пользователь
+    const raw = localStorage.getItem('profstroy_user');
+    if (raw) {
+      try {
+        const user = JSON.parse(raw);
+        updateUserUI(user);
+      } catch(e) {
+        console.warn('Ошибка чтения профиля из localStorage', e);
+      }
+    }
+    // Показываем кнопку входа/регистрации, если нужно
+    renderAuthButton();
+  });
+
+  // Обработка формы регистрации
+  registerForm && registerForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const name = (document.getElementById('reg_name').value || '').trim();
+    const phoneRaw = (document.getElementById('reg_phone').value || '').trim();
+    const digits = sanitizeDigits(phoneRaw);
+
+    if (!name) {
+      alert('Пожалуйста, укажите имя.');
+      return;
+    }
+    if (digits.length < 11) {
+      alert('Введите корректный телефон (пример: +7 (999) 123-45-67).');
+      return;
+    }
+
+    const payload = { name: name, phone: phoneRaw };
+
+    // Индикатор сабмита
+    const submitBtn = registerForm.querySelector('button[type="submit"]');
+    const prevText = submitBtn ? submitBtn.textContent : null;
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Регистрация...';
+    }
+
+    const result = await registerUser(payload);
+
+    if (result) {
+      if (result.source === 'server') {
+        const userData = (result.data && result.data.user) ? result.data.user : payload;
+        // Сохраняем и показываем UI
+        finalizeLogin(userData);
+        alert('Регистрация завершена (через сервер).');
+      } else {
+        // Локальная регистрация
+        finalizeLogin(payload);
+        alert('Регистрация завершена (локально).');
+      }
+      // После успешной регистрации скрываем модальное окно
+      registerModal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+
+      // Обновляем кнопку/интерфейс
+      renderAuthButton();
+
+    } else {
+      alert('Не удалось зарегистрироваться. Попробуйте снова.');
+    }
+
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = prevText || 'Зарегистрироваться';
+    }
+  });
+
+  // После входа — сохраняем и обновляем интерфейс
+  function finalizeLogin(userData) {
+    const user = {
+      name: userData.name,
+      phone: userData.phone,
+      createdAt: new Date().toISOString()
+    };
+    localStorage.setItem('profstroy_user', JSON.stringify(user));
+    updateUserUI(user);
+    // Обновляем кнопку входа/регистрации
+    renderAuthButton();
+  }
+
+  // Изначально при загрузке страницы проверяем и показываем правильный интерфейс
+  document.addEventListener('DOMContentLoaded', function() {
+    // Проверка пользователя
+    const raw = localStorage.getItem('profstroy_user');
+    if (raw) {
+      try {
+        const user = JSON.parse(raw);
+        updateUserUI(user);
+      } catch(e) {
+        console.warn('Ошибка чтения профиля из localStorage', e);
+      }
+    }
+    // Обновляем кнопку входа/регистрации
+    renderAuthButton();
+  });
+
+  // Обработчик выхода
+  // Уже реализован внутри updateUserUI при клике на кнопку "Выйти"
+
+})();
+ document.querySelector('.contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Получаем номер телефона из формы
+    const phoneInput = document.getElementById('phone');
+    const phoneNumber = phoneInput.value || 'указанный номер';
+    
+    // Создаем сообщение с номером телефона
+    const message = `Мы свяжемся с вами в ближайшее время по номеру: <strong>${phoneNumber}</strong>`;
+    
+    // Вставляем сообщение в модалку
+    document.getElementById('successMessage').innerHTML = message;
+    
+    // Показываем модалку
+    showSuccessModal();
+    
+    // Сбрасываем форму
+    this.reset();
+  });
+
+  // Функции для работы с модалкой
+  function showSuccessModal() {
+    const modal = document.getElementById('successModal');
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSuccessModal() {
+    const modal = document.getElementById('successModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+
+  // Закрытие модалки по клику вне окна
+  window.addEventListener('click', function(e) {
+    const modal = document.getElementById('successModal');
+    if (e.target === modal) {
+      closeSuccessModal();
+    }
+  });
+  // ===== Универсальное гамбургер меню для всех страниц =====
+document.addEventListener('DOMContentLoaded', function() {
+  // Инициализация мобильного меню
+  const burgerToggle = document.getElementById('burger-toggle');
+  const menuOverlay = document.querySelector('.menu-overlay');
+  
+  // Определяем текущую страницу для подсветки активного пункта
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  
+  // Подсвечиваем активный пункт меню
+  setTimeout(() => {
+    const menuLinks = document.querySelectorAll('.mobile-nav-menu a[href]');
+    menuLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === currentPage || 
+          (currentPage === 'index.html' && href.includes('index.html')) ||
+          (currentPage.includes('projects') && href.includes('projects')) ||
+          (currentPage.includes('about') && href.includes('about')) ||
+          (currentPage.includes('contacts') && href.includes('contacts'))) {
+        link.classList.add('active');
+      }
+    });
+  }, 100);
+  
+  // Закрытие меню при клике на оверлей
+  if (menuOverlay) {
+    menuOverlay.addEventListener('click', function() {
+      burgerToggle.checked = false;
+      document.body.style.overflow = 'auto';
+    });
+  }
+  
+  // Закрытие меню при клике на ссылку
+  const mobileLinks = document.querySelectorAll('.mobile-nav-menu a');
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      // Для ссылок с data-service (услуги)
+      if (this.hasAttribute('data-service')) {
+        e.preventDefault();
+        const serviceId = this.getAttribute('data-service');
+        const modal = document.getElementById(`${serviceId}-modal`);
+        
+        if (modal) {
+          // Закрываем меню
+          burgerToggle.checked = false;
+          document.body.style.overflow = 'auto';
+          
+          // Открываем модальное окно услуги
+          setTimeout(() => {
+            document.querySelectorAll('.service-modal').forEach(m => {
+              m.style.display = 'none';
+            });
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+          }, 300);
+          
+          // Прокручиваем к услугам
+          const servicesSection = document.getElementById('services');
+          if (servicesSection) {
+            setTimeout(() => {
+              servicesSection.scrollIntoView({
+                behavior: 'smooth'
+              });
+            }, 350);
+          }
+        }
+      } 
+      // Для якорных ссылок на текущей странице
+      else if (this.getAttribute('href').startsWith('#')) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          // Закрываем меню
+          burgerToggle.checked = false;
+          document.body.style.overflow = 'auto';
+          
+          // Прокручиваем к секции
+          setTimeout(() => {
+            const headerHeight = document.querySelector('.header').offsetHeight;
+            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+            
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+          }, 300);
+        }
+      } 
+      // Для внешних ссылок (другие страницы)
+      else if (!this.getAttribute('href').startsWith('#')) {
+        // Даем время на закрытие меню перед переходом
+        e.preventDefault();
+        burgerToggle.checked = false;
+        document.body.style.overflow = 'auto';
+        
+        const href = this.getAttribute('href');
+        setTimeout(() => {
+          window.location.href = href;
+        }, 300);
+      }
+    });
+  });
+  
+  // Обработка dropdown в мобильном меню
+  const mobileDropdowns = document.querySelectorAll('.mobile-nav-menu .dropdown-toggle');
+  mobileDropdowns.forEach(toggle => {
+    toggle.addEventListener('click', function(e) {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        e.stopPropagation();
+        const dropdown = this.parentElement;
+        const isActive = dropdown.classList.contains('active');
+        
+        // Закрываем все остальные dropdown
+        document.querySelectorAll('.mobile-nav-menu .dropdown').forEach(d => {
+          if (d !== dropdown) {
+            d.classList.remove('active');
+          }
+        });
+        
+        // Переключаем текущий dropdown
+        dropdown.classList.toggle('active', !isActive);
+      }
+    });
+  });
+  
+  // Закрытие dropdown при клике вне их
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.mobile-nav-menu .dropdown') && window.innerWidth <= 768) {
+      document.querySelectorAll('.mobile-nav-menu .dropdown').forEach(d => {
+        d.classList.remove('active');
+      });
+    }
+  });
+  
+  // Закрытие меню при нажатии ESC
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && burgerToggle && burgerToggle.checked) {
+      burgerToggle.checked = false;
+      document.body.style.overflow = 'auto';
+    }
+  });
+  
+  // Закрытие меню при изменении размера окна на десктоп
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 768 && burgerToggle && burgerToggle.checked) {
+      burgerToggle.checked = false;
+      document.body.style.overflow = 'auto';
+    }
+  });
+  
+  // Управление overflow body при открытии/закрытии меню
+  if (burgerToggle) {
+    burgerToggle.addEventListener('change', function() {
+      if (this.checked) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'auto';
+      }
+    });
+  }
+});
+    </script>
+</body>
+
+</html>
